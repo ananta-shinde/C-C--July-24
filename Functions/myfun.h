@@ -32,6 +32,12 @@ void printArray(int* arr,int length){
    
 }
 
+void swapValues(int* n1,int* n2){
+     int temp = *n1;
+    *n1=*n2;
+    *n2=temp;
+}
+
 int largestOfArray(int* arr,int length){
     int largest = arr[0];
     for(int i=0;i<length;i++)
@@ -41,4 +47,40 @@ int largestOfArray(int* arr,int length){
         }
     }
     return largest;
+}
+
+void sortArrayAsc(int* arr,int length)
+{
+     for(int j=0;j<(length-1);j++)
+    {
+        for(int i=0;i<(length-1);i++)
+        {
+            if(arr[i]>arr[i+1])
+            {
+                swapValues(&arr[i],&arr[i+1]);
+            }
+        }
+    }
+}
+
+void sortArrayDec(int* arr,int length)
+{
+     for(int j=0;j<(length-1);j++)
+    {
+        for(int i=0;i<(length-1);i++)
+        {
+            if(arr[i]<arr[i+1])
+            {
+                swapValues(&arr[i],&arr[i+1]);
+            }
+        }
+    }
+}
+
+void sortArray(int *arr,int length,char type){
+    if(type == 'a'){
+        sortArrayAsc(arr,length);
+    }else{
+        sortArrayDec(arr,length);
+    }
 }
